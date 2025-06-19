@@ -1,0 +1,16 @@
+.cardMovie{
+    margin-right: 2%;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    width: 225px;
+    height: 400px;
+}
+.cardMovie p{
+    font-size: 2rem;
+    font-weight: bold;
+}
+.cardMovie img{
+    width: 225px;
+    height: 300px;
+}
+

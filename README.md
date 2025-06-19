@@ -1,54 +1,20 @@
-# React + TypeScript + Vite
+Esta es una app de peliculas actores cines localidades generos de peliculas y cines como tal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+carpetas
+features -funcionalidades principales de la app
 
-Currently, two official plugins are available:
+git config --global user.name "VNCAlek"
+git config --global user.email "villanewcode@gmail.com"
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+git add .
 
-## Expanding the ESLint configuration
+git branch -M main //pasar la base del project en 0 al main
+git commit -m "Movie Web Site Project"
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+git remote add origin https://github.com/VNCKey/moviesite.git //conectarlo a nuestra github
+git push -u origin main // projecto base
+git log
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+git checkout -b devAlek // para crear una rama pero no usarla
+git checkout devAlek // selectionar la rama para empezar a trabajar
+git push -u origin devAlek // guardando mi progreso en mi rama de trabajo
