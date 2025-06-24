@@ -1,5 +1,6 @@
 import type Movie from "../../models/movie.model";
-import styles from"./MovieCard.module.css"
+import styles from"../style/MovieCard.module.css"
+
 const MovieCard = (props: MovieCardProps) => {
 
     const buildLink = ()=> `/pelicula/${props.movie.id}`
