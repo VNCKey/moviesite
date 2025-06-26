@@ -2,7 +2,7 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 import type CreateGender from "../models/CreateGender.model";
 import * as yup from 'yup'
 import Button from "@/components/ui/Button";
-import { FirstCapitalLetter } from "@/validation/Validations";
+import { FirstCapitalLetter } from "@/utils/validation/Validations";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { NavLink } from "react-router";
 

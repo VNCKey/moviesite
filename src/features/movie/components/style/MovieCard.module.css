@@ -4,6 +4,8 @@
     text-align: center;
     width: 225px;
     height: 400px;
+    margin: 50px;
+    padding: 1em;
 }
 .cardMovie p{
     font-size: 2rem;

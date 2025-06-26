@@ -46,6 +46,7 @@ const LandingPage = () => {
     return (
         <>
             <h2>Peliculas</h2>
+
             <ListMovies movies={movies.movie}/>
             <h2>Estrenos</h2>
             <ListMovies movies={movies.upcomingMovie}/>

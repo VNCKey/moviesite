@@ -3,7 +3,7 @@ import Button from "@/components/ui/Button";
 import { NavLink } from "react-router";
 import type CreateActorInterface from "../models/CreateActor.model";
 import * as yup from 'yup'
-import { dateValidate, FirstCapitalLetter } from "@/validation/Validations";
+import { dateValidate, FirstCapitalLetter } from "@/utils/validation/Validations";
 import { yupResolver } from "@hookform/resolvers/yup";
 import SelectImg from "@/components/ui/SelectImg";
 
