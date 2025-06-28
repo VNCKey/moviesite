@@ -5,12 +5,20 @@ import FormMovie from "./FormMovie";
 import type { SubmitHandler } from "react-hook-form";
 import Loading from "@/components/ui/Loading";
 import type Gender from "@/features/gender/models/Gender.model";
+import type CineModel from "@/features/cines/models/Cine.model";
 
 const EditMovie = () => {
+    const {id} = useParams();
     
+    
+    useEffect(()=>{
+        setTimeout(()=>{
+            setModel({title:'Avengers' + id, dateRelease:'2020-05-11',trailer:'abc',poster:'https://th.bing.com/th/id/R.d77f5056227b42273b34453a26fd4e19?rik=xgX5BJl%2fTP9Rgw&pid=ImgRaw&r=0'})
+        },500)
+    },[id])
+
     const [model, setModel] = useState<CreateMovie | undefined>(undefined)
 
-    const {id} = useParams();
 
     const onSubmit: SubmitHandler<CreateMovie> = async(data)=>{
             console.log('Editando peliucla....')
@@ -26,16 +34,36 @@ const EditMovie = () => {
         {id:3,name:'Comedia'}
     ]
 
-    useEffect(()=>{
-        setTimeout(()=>{
-            setModel({title:'Avengers' + id, dateRelease:'2020-05-11',trailer:'abc',poster:'https://th.bing.com/th/id/R.d77f5056227b42273b34453a26fd4e19?rik=xgX5BJl%2fTP9Rgw&pid=ImgRaw&r=0'})
-        },500)
-    },[id])
+    const selectedCinema: CineModel[] = [
+        {
+            id:1,
+            name: 'Spider',
+            latitud:0,
+            longitud:0
+        },
+    ];
+    const unSelectedCinema: CineModel[] = [
+        {
+            id:2,
+            name: 'Batman',
+            latitud:0,
+            longitud:0
+        }
+    ];
+
 
     return (
         <>
             <h3>Editar Pelicula</h3>
-            {model ? <FormMovie model={model} onSubmit={onSubmit} noselectedGenders={gendersNoSelected} selectedGenders={gendersSelected}/> : <Loading/>}
+            {model ? 
+                <FormMovie 
+                    model={model} 
+                    onSubmit={onSubmit} 
+                    noselectedGenders={gendersNoSelected} 
+                    selectedGenders={gendersSelected}
+                    selectedCinemas={selectedCinema}
+                    unSelectedCinemas={unSelectedCinema}
+                /> : <Loading/>}
         </>
     );
 };

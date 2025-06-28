@@ -3,5 +3,6 @@ export default interface CreateMovie{
     dateRelease: string;
     trailer?:string;
     poster?:File | string;
-    gendersId?: number[]
+    gendersId?: number[];
+    cinesIds?:number[];
 }
