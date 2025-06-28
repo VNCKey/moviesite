@@ -4,6 +4,7 @@ import type CreateMovie from "../../models/CreateMovie.model";
 import FormMovie from "./FormMovie";
 import type { SubmitHandler } from "react-hook-form";
 import Loading from "@/components/ui/Loading";
+import type Gender from "@/features/gender/models/Gender.model";
 
 const EditMovie = () => {
     
@@ -17,6 +18,14 @@ const EditMovie = () => {
             console.log(data)
     }
 
+    const gendersSelected:Gender[] = [
+        {id:2,name:'Drama'},
+    ]
+    const gendersNoSelected:Gender[] = [
+        {id:1,name:'Accion'},
+        {id:3,name:'Comedia'}
+    ]
+
     useEffect(()=>{
         setTimeout(()=>{
             setModel({title:'Avengers' + id, dateRelease:'2020-05-11',trailer:'abc',poster:'https://th.bing.com/th/id/R.d77f5056227b42273b34453a26fd4e19?rik=xgX5BJl%2fTP9Rgw&pid=ImgRaw&r=0'})
@@ -26,7 +35,7 @@ const EditMovie = () => {
     return (
         <>
             <h3>Editar Pelicula</h3>
-            {model ? <FormMovie model={model} onSubmit={onSubmit} /> : <Loading/>}
+            {model ? <FormMovie model={model} onSubmit={onSubmit} noselectedGenders={gendersNoSelected} selectedGenders={gendersSelected}/> : <Loading/>}
         </>
     );
 };
