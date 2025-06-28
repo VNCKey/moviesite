@@ -20,3 +20,4 @@ git checkout devAlek // selectionar la rama para empezar a trabajar
 git push -u origin devAlek // guardando mi progreso en mi rama de trabajo
 
 AVANZE DEL 80% REACT
++80%
