@@ -6,7 +6,7 @@ const IndexCines = () => {
     return (
         <>
             <h3>Cines</h3>
-            <Button onclick={()=> navigate('/cines/create')} >Actores</Button>
+            <Button onclick={()=> navigate('/cines/create')} >Crear Cine</Button>
         
         </>
     );
