@@ -10,6 +10,7 @@ import MultiSelector from "@/components/ui/MultiSelector";
 import type Gender from "@/features/gender/models/Gender.model";
 import type MultiSelectorModel from "@/components/model/MultiSelector.model";
 import { useState } from "react";
+import type CineModel from "@/features/cines/models/Cine.model";
 
 const FormMovie = (props:FormMovieProps) => {
 
@@ -30,8 +31,12 @@ const FormMovie = (props:FormMovieProps) => {
     const [gendersSelected, setGendersSelected] = useState(mapear(props.selectedGenders));
     const [nogendersSelected, setNoGendersSelected] = useState(mapear(props.noselectedGenders));
 
+    const [selectedCinemas, setSelectedCinemas] = useState(mapear(props.selectedCinemas));
+    const [unSelectedCinemas, setUnSelectedCinemas] = useState(mapear(props.unSelectedCinemas));
+
     const onSubmit:SubmitHandler<CreateMovie>  = (data) =>{
-        data.gendersId = gendersSelected.map(value => value.key)
+        data.gendersId = gendersSelected.map(value => value.key);
+        data.cinesIds =  selectedCinemas.map(value => value.key)
         props.onSubmit(data)
     } 
 
@@ -69,6 +74,17 @@ const FormMovie = (props:FormMovieProps) => {
                 </div>
 
                 <div>
+                    <label htmlFor="">Cines:</label>
+                    <MultiSelector 
+                        selected={selectedCinemas} 
+                        noSelected={unSelectedCinemas} 
+                        onChange={(selected,unSelected) => {
+                            setSelectedCinemas(selected)
+                            setUnSelectedCinemas(unSelected)
+                        }}></MultiSelector>
+                </div>
+
+                <div>
                     <Button type="submit" disable={!isValid || isSubmitting}>{isSubmitting ? 'Enviando...':'Enviar'}</Button>
                     <NavLink to={"/"}>Cancelar</NavLink>
                 </div>
@@ -82,6 +98,8 @@ interface FormMovieProps{
     onSubmit:SubmitHandler<CreateMovie>;
     selectedGenders: Gender[];
     noselectedGenders: Gender[];
+    selectedCinemas: CineModel[];
+    unSelectedCinemas: CineModel[];
 }
 
 const validationRules = yup.object({
