@@ -1,23 +1,60 @@
-.nav{
-    width: 100%;
-    height: auto;
-    background-color: aliceblue;
-    padding: .5em;
-    margin-bottom: .5em;
+.nav {
+    background-color: #003972;
+    padding: 8px 100px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.containerNav{
-    background-color: bisque;
+/* Contenedor interno centrado */
+.containerNav {
     display: flex;
-    flex-direction: row;
-    gap: 1em;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.containerNav > a{
-    font-size: 2em;
-}
-
-.containerNav ul{
+/* Lista de navegación */
+.containerNav ul {
     display: flex;
-    flex-direction: row;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
 }
+
+/* Enlaces */
+.containerNav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover */
+.containerNav a:hover {
+    background-color: #880000;
+    color: white;
+}
+
+/* Enlace activo (cuando NavLink coincide con la ruta) */
+.containerNav a.active {
+    background-color: #3498db;
+    color: white;
+}
+.link {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.link:hover {
+    background-color: #8607cf;
+}
+
+.active {
+    background-color: #b7db34;
+}
+

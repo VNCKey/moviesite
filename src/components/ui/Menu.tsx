@@ -1,15 +1,18 @@
 import { NavLink } from "react-router";
 import style from "../style/Menu.module.css"
 
+
 const Menu = () => {
     return (
         <nav className={style.nav}>
             <div className={style.containerNav}>
-                <NavLink to={"/"}>PELICULAS</NavLink>
+                <NavLink to={"/"}>PERUFLIX</NavLink>
                 <div>
                     <ul>    
                         <li>
-                            <NavLink to={'/movies/filter'}>Filtrar Peliculas</NavLink>
+                            <NavLink to={"/"} className={({ isActive }) => isActive ? "active" : ""}>
+                                Filtrar Peliculas
+                            </NavLink>
                         </li>
                         <li>
                             <NavLink to={'/genres'}>Géneros</NavLink>

@@ -12,11 +12,7 @@
   "dependencies": {
     "@hookform/resolvers": "5.0.1",
     "@types/node": "^24.0.3",
-<<<<<<< HEAD
-    "moviesite": "file:",
-=======
     "leaflet": "1.9.4",
->>>>>>> 0ef9599f03adcc656fce4226ef7d8cd090bd286b
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-hook-form": "7.56.1",
