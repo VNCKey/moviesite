@@ -1,23 +1,63 @@
-.nav{
-    width: 100%;
-    height: auto;
-    background-color: aliceblue;
-    padding: .5em;
-    margin-bottom: .5em;
+.nav {
+  width: 100%;
+  background-color: #141414;
+  padding: 0.5em 1em;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  overflow-x: hidden; /* 👈 asegura que no crezca horizontalmente */
 }
 
-.containerNav{
-    background-color: bisque;
-    display: flex;
-    flex-direction: row;
-    gap: 1em;
+.containerNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;     /* 👈 evita que el contenido se desborde */
+  max-width: 100%;     /* 👈 fuerza ancho máximo */
+  overflow-x: hidden;  /* 👈 corta cualquier desborde */
 }
 
-.containerNav > a{
-    font-size: 2em;
+
+.logo {
+  height: 50px;
+  width: auto;
 }
 
-.containerNav ul{
-    display: flex;
-    flex-direction: row;
+/* ESTILO PARA UL */
+.navLinks {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  margin: 0;
+  padding: 0;
+}
+
+/* ESTILO PARA LOS LINKS */
+.navLinks li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1em;
+  transition: color 0.3s ease;
+}
+
+.navLinks li a:hover {
+  color: #e50914; /* rojo Netflix */
+}
+
+/* Si NavLink aplica la clase active (solo funciona bien con react-router-dom) */
+.navLinks li a.active {
+  border-bottom: 2px solid #e50914;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
 }
