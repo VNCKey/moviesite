@@ -11,6 +11,7 @@ import type Gender from "@/features/gender/models/Gender.model";
 import type MultiSelectorModel from "@/components/model/MultiSelector.model";
 import { useState } from "react";
 import type CineModel from "@/features/cines/models/Cine.model";
+import ActorsSelect from "./ActorsTypeahead";
 
 const FormMovie = (props:FormMovieProps) => {
 
@@ -82,6 +83,10 @@ const FormMovie = (props:FormMovieProps) => {
                             setSelectedCinemas(selected)
                             setUnSelectedCinemas(unSelected)
                         }}></MultiSelector>
+                </div>
+
+                <div>
+                    <ActorsSelect></ActorsSelect>
                 </div>
 
                 <div>
