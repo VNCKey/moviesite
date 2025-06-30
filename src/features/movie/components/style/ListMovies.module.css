@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .listCardMovie {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -20,3 +21,11 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+=======
+.listCardMovie{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+}
+>>>>>>> 3c6a5ac0febe23b88188b0a9455fcd9a7c29be6b

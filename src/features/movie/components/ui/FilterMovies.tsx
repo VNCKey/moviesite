@@ -39,7 +39,7 @@ const FilterMovies = () => {
     return (
         <>
             <h3>Filtro de Peliculas</h3>
-            <form action="" onSubmit={handleSubmit(onSubmit)}>
+            <form action="" onSubmit={handleSubmit(onSubmit)} className="boxFormulario">
                 <div>
                     <input type="text"  id="title" placeholder="Titulo de la Pelicula" autoComplete="off" className="" {...register('title')}/>
                 </div>
