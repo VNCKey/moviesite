@@ -7,7 +7,7 @@ const Map = (props: MapPropsInterface) => {
     const [coordinates, setCoordinates] = useState<Coordinate[] | undefined>(props.coordinate);
 
     return (  
-        <>
+        
             <MapContainer 
                 center={[-12.050333235664148, -77.03426901250258]} 
                 zoom={14} scrollWheelZoom={true} 
@@ -26,7 +26,7 @@ const Map = (props: MapPropsInterface) => {
                                         </Marker>)
                     }
             </MapContainer>
-        </>
+        
     );    
 };
 

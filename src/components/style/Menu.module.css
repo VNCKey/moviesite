@@ -1,23 +1,125 @@
-.nav{
-    width: 100%;
-    height: auto;
-    background-color: aliceblue;
-    padding: .5em;
-    margin-bottom: .5em;
+.nav {
+<<<<<<< HEAD
+  width: 100%;
+  background-color: #141414;
+  padding: 0.5em 1em;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  overflow-x: hidden; /* 👈 asegura que no crezca horizontalmente */
 }
 
-.containerNav{
-    background-color: bisque;
+.containerNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;     /* 👈 evita que el contenido se desborde */
+  max-width: 100%;     /* 👈 fuerza ancho máximo */
+  overflow-x: hidden;  /* 👈 corta cualquier desborde */
+}
+
+
+.logo {
+  height: 50px;
+  width: auto;
+}
+
+/* ESTILO PARA UL */
+.navLinks {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  margin: 0;
+  padding: 0;
+}
+
+/* ESTILO PARA LOS LINKS */
+.navLinks li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1em;
+  transition: color 0.3s ease;
+}
+
+.navLinks li a:hover {
+  color: #e50914; /* rojo Netflix */
+}
+
+/* Si NavLink aplica la clase active (solo funciona bien con react-router-dom) */
+.navLinks li a.active {
+  border-bottom: 2px solid #e50914;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+=======
+    background-color: #003972;
+    padding: 8px 100px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Contenedor interno centrado */
+.containerNav {
     display: flex;
-    flex-direction: row;
-    gap: 1em;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.containerNav > a{
-    font-size: 2em;
-}
-
-.containerNav ul{
+/* Lista de navegación */
+.containerNav ul {
     display: flex;
-    flex-direction: row;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
 }
+
+/* Enlaces */
+.containerNav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover */
+.containerNav a:hover {
+    background-color: #880000;
+    color: white;
+}
+
+/* Enlace activo (cuando NavLink coincide con la ruta) */
+.containerNav a.active {
+    background-color: #3498db;
+    color: white;
+}
+.link {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.link:hover {
+    background-color: #8607cf;
+}
+
+.active {
+    background-color: #b7db34;
+}
+
+>>>>>>> 3c6a5ac0febe23b88188b0a9455fcd9a7c29be6b

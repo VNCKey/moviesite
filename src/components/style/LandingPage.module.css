@@ -1,0 +1,28 @@
+.movieList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1px;
+}
+.sectionTitle {
+    text-align: center;
+    font-weight: bold;
+    color: #2c3e50;
+    margin: 5px 0 10px;
+}
+.sectionTitle::after {
+    content: "";
+    position: absolute;
+    bottom: 75px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 105px;
+    height: 2px;
+    background: #3498db;
+    transition: width 0.4s ease;
+    border-radius: 2px;
+}
+.sectionTitle:hover::after {
+    inline-size: 15%;
+    /* se extiende al pasar el mouse */
+}
