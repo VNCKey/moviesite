@@ -1,5 +1,4 @@
 import { useForm, type SubmitHandler } from "react-hook-form";
-import type CreateMovie from "../../models/CreateMovie.model";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import * as yup from "yup";
@@ -14,6 +13,7 @@ import type CineModel from "@/features/cines/models/Cine.model";
 import TypeaheadActors from "./TypeaheadActors";
 import type MovieActorModel from "../../models/MovieActor.model";
 import MostrarErrores from "@/components/ui/MostrarErrores";
+import type CreateMovieI from "../../models/CreateMovie.model";
 
 const FormMovie = (props: FormMovieProps) => {
   const {
@@ -21,7 +21,7 @@ const FormMovie = (props: FormMovieProps) => {
     handleSubmit,
     setValue,
     formState: { errors, isValid, isSubmitting },
-  } = useForm<CreateMovie>({
+  } = useForm<CreateMovieI>({
     resolver: yupResolver(validationRules),
     mode: "onChange",
     defaultValues: props.model ?? { titulo: "" }, // name ?
@@ -57,7 +57,7 @@ const FormMovie = (props: FormMovieProps) => {
     props.actorsSelected
   );
 
-  const onSubmit: SubmitHandler<CreateMovie> = (data) => {
+  const onSubmit: SubmitHandler<CreateMovieI> = (data) => {
     data.gendersIds = gendersSelected.map((value) => value.key);
     data.cinesIds = selectedCinemas.map((value) => value.key);
     data.actors = actorsSelected;
@@ -165,8 +165,8 @@ const FormMovie = (props: FormMovieProps) => {
 };
 
 interface FormMovieProps {
-  model?: CreateMovie;
-  onSubmit: SubmitHandler<CreateMovie>;
+  model?: CreateMovieI;
+  onSubmit: SubmitHandler<CreateMovieI>;
   selectedGenders: Gender[];
   noselectedGenders: Gender[];
   selectedCinemas: CineModel[];

@@ -1,6 +1,6 @@
-import type CreateMovie from "../models/CreateMovie.model";
+import type CreateMovieI from "../models/CreateMovie.model";
 
-export default function ConvertMovie(peliculaCreate: CreateMovie) {
+export default function ConvertMovie(peliculaCreate: CreateMovieI) {
   const formData = new FormData();
   formData.append("titulo", peliculaCreate.titulo);
   formData.append("fechaLanzamiento", peliculaCreate.fechaLanzamiento);

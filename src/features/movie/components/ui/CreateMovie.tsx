@@ -1,6 +1,5 @@
 import { type SubmitHandler } from "react-hook-form";
 import FormMovie from "./FormMovie";
-import type CreateMovie from "../../models/CreateMovie.model";
 import type Gender from "@/features/gender/models/Gender.model";
 import type CineModel from "@/features/cines/models/Cine.model";
 import { useEffect, useState } from "react";
@@ -12,6 +11,7 @@ import type Movie from "../../models/movie.model";
 import { useNavigate } from "react-router";
 import { extraerErrores } from "@/utils/extraerErrores";
 import type { AxiosError } from "axios";
+import type CreateMovieI from "../../models/CreateMovie.model";
 
 const CreateMovie = () => {
   const navigate = useNavigate();
@@ -30,7 +30,7 @@ const CreateMovie = () => {
     });
   }, []);
 
-  const onSubmit: SubmitHandler<CreateMovie> = async (data) => {
+  const onSubmit: SubmitHandler<CreateMovieI> = async (data) => {
     try {
       const formData = ConvertMovie(data);
       await clientApi.postForm<Movie>(`/peliculas`, formData);

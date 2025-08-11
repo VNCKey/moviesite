@@ -1,6 +1,6 @@
 import type MovieActorModel from "./MovieActor.model";
 
-export default interface CreateMovie {
+export default interface CreateMovieI {
   titulo: string;
   fechaLanzamiento: string;
   trailer?: string;

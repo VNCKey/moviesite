@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import type CreateMovie from "../../models/CreateMovie.model";
 import FormMovie from "./FormMovie";
 import type { SubmitHandler } from "react-hook-form";
 import Loading from "@/components/ui/Loading";
 import type Gender from "@/features/gender/models/Gender.model";
 import type CineModel from "@/features/cines/models/Cine.model";
 import type MovieActorModel from "../../models/MovieActor.model";
+import type CreateMovieI from "../../models/CreateMovie.model";
 
 const EditMovie = () => {
   const { id } = useParams();
@@ -23,9 +23,9 @@ const EditMovie = () => {
     }, 500);
   }, [id]);
 
-  const [model, setModel] = useState<CreateMovie | undefined>(undefined);
+  const [model, setModel] = useState<CreateMovieI | undefined>(undefined);
 
-  const onSubmit: SubmitHandler<CreateMovie> = async (data) => {
+  const onSubmit: SubmitHandler<CreateMovieI> = async (data) => {
     console.log("Editando peliucla....");
     await new Promise((resolve) => setTimeout(resolve, 500));
     console.log(data);
