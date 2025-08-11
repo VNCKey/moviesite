@@ -16,7 +16,7 @@ import RouteNotFound from "../components/ui/RouteNotFound";
 import CreateGender from "../features/gender/components/CreateGender";
 import FilterMovies from "../features/movie/components/ui/FilterMovies";
 import CreateActor from "../features/actors/components/CreateActor";
-import CreateMovie from "@/features/movie/components/ui/CreateMovie";
+// import CreateMovie from "@/features/movie/components/ui/CreateMovie";
 
 const AppRoutes = () => {
   return (
@@ -35,7 +35,7 @@ const AppRoutes = () => {
       <Route path="/cines/create" element={<CreateCines />} />
       <Route path="/cines/edit/:id" element={<EditCines />} />
 
-      <Route path="/movies/create" element={<CreateMovie />} />
+      {/* <Route path="/movies/create" element={<CreateMovie />} /> */}
       <Route path="/movies/edit/:id" element={<EditMovie />} />
 
       <Route path="/movies/filter" element={<FilterMovies />} />
