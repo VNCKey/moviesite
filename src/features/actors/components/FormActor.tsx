@@ -6,6 +6,7 @@ import * as yup from 'yup'
 import { dateValidate, FirstCapitalLetter } from "@/utils/validation/Validations";
 import { yupResolver } from "@hookform/resolvers/yup";
 import SelectImg from "@/components/ui/SelectImg";
+import MostrarErrores from "@/components/ui/MostrarErrores";
 
     const FormActor = (props: FormActorProps) => {
     
@@ -25,6 +26,7 @@ import SelectImg from "@/components/ui/SelectImg";
 
         return (
         <>
+						<MostrarErrores errores={props.errores}/>
             <form action="" onSubmit={handleSubmit(props.onSubmit)}>
                 <div className="">
                     <label htmlFor="name">Nombre</label>
@@ -50,7 +52,8 @@ import SelectImg from "@/components/ui/SelectImg";
 
 interface FormActorProps{
     model?:CreateActorInterface;
-    onSubmit: SubmitHandler<CreateActorInterface>
+    onSubmit: SubmitHandler<CreateActorInterface>;
+		errores: string[]
 }
 
 const validationRules = yup.object({

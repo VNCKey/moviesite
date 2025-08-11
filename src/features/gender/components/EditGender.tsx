@@ -1,35 +1,48 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import type CreateGender from "../models/CreateGender.model";
 import GenderForm from "./GenderForm";
 import type { SubmitHandler } from "react-hook-form";
 import Loading from "@/components/ui/Loading";
+import clientApi from "@/api/clientAxios";
+import type Gender from "../models/Gender.model";
+import { extraerErrores } from "@/utils/extraerErrores";
+import type { AxiosError } from "axios";
 
 const EditGender = () => {
-    const {id} = useParams();
-    const [model,setModel]= useState<CreateGender | undefined>(undefined)
+  const { id } = useParams();
+  const [model, setModel] = useState<CreateGender | undefined>(undefined);
+  const [errores, setErrores] = useState<string[]>([]);
 
+  const navigate = useNavigate();
 
-    useEffect(()=>{
-        const timerId = setTimeout(()=>{
-            setModel({name:'Drama '+id})
-        },1000);
+  useEffect(() => {
+    clientApi
+      .get<Gender>(`/gender/${id}`)
+      .then((res) => setModel(res.data))
+      .catch(() => navigate("/genders"));
+  }, [id, navigate]);
 
-        return ()=>clearTimeout(timerId)
-    },[id])
-
-    const onSubmit:SubmitHandler<CreateGender> = async (data)=> {
-            console.log('Editando el genero')
-            await new Promise(resolve => setTimeout(resolve,2000));
-            console.log(data)
+  const onSubmit: SubmitHandler<CreateGender> = async (data) => {
+    try {
+      await clientApi.put(`/gender/${id}`, data);
+      navigate("/genders");
+    } catch (error) {
+      const errores = extraerErrores(error as AxiosError);
+      setErrores(errores);
     }
+  };
 
-    return (
-        <>
-            <div>Editar Genero</div>
-            {model ? <GenderForm  model={model} onSubmit={onSubmit}/> : <Loading/>}
-        </>
-    );
+  return (
+    <>
+      <div>Editar Genero</div>
+      {model ? (
+        <GenderForm errores={errores} model={model} onSubmit={onSubmit} />
+      ) : (
+        <Loading />
+      )}
+    </>
+  );
 };
 
 export default EditGender;

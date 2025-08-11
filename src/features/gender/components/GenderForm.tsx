@@ -1,46 +1,61 @@
 import { useForm, type SubmitHandler } from "react-hook-form";
 import type CreateGender from "../models/CreateGender.model";
-import * as yup from 'yup'
+import * as yup from "yup";
 import Button from "@/components/ui/Button";
 import { FirstCapitalLetter } from "@/utils/validation/Validations";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { NavLink } from "react-router";
+import MostrarErrores from "@/components/ui/MostrarErrores";
 
 const GenderForm = (props: FormGenderProps) => {
+  const {
+    register,
+    formState: { errors, isValid, isSubmitting },
+    handleSubmit,
+  } = useForm<CreateGender>({
+    resolver: yupResolver(rulesValidation),
+    mode: "onChange",
+    defaultValues: props.model ?? { name: "" },
+  });
 
-    const {
-            register, 
-            formState:{errors, isValid, isSubmitting},
-            handleSubmit} = useForm<CreateGender>({
-            resolver:yupResolver(rulesValidation),
-            mode:'onChange',
-            defaultValues:props.model ?? {name: ''}
-    });
-
-    return (
-        <>
-            <form action="" onSubmit={handleSubmit(props.onSubmit)}>
-                <div className="">
-                    <label htmlFor="name">Nombre</label>
-                    <input autoComplete="off" type="text" className="" {...register('name')}/>
-                    {errors.name && <p className="">{errors.name.message}</p>}
-                </div>
-                <div className="">
-                    <Button type="submit" disable={!isValid || isSubmitting}>{isSubmitting ? 'Enviado..' : "Enviar"}</Button>
-                    <NavLink  to='/genres' className=''>Cancelar</NavLink>
-                </div>
-            </form>
-        </>
-    );
+  return (
+    <>
+      <MostrarErrores errores={props.errores} />
+      <form action="" onSubmit={handleSubmit(props.onSubmit)}>
+        <div className="">
+          <label htmlFor="name">Nombre</label>
+          <input
+            autoComplete="off"
+            type="text"
+            className=""
+            {...register("name")}
+          />
+          {errors.name && <p className="">{errors.name.message}</p>}
+        </div>
+        <div className="">
+          <Button type="submit" disable={!isValid || isSubmitting}>
+            {isSubmitting ? "Enviado.." : "Enviar"}
+          </Button>
+          <NavLink to="/genders" className="">
+            Cancelar
+          </NavLink>
+        </div>
+      </form>
+    </>
+  );
 };
 
 export default GenderForm;
 
-interface FormGenderProps{
-    model?: CreateGender;
-    onSubmit: SubmitHandler<CreateGender>
+interface FormGenderProps {
+  model?: CreateGender;
+  onSubmit: SubmitHandler<CreateGender>;
+  errores: string[];
 }
 
 const rulesValidation = yup.object({
-    name: yup.string().required("El nombre es obligatorio").test(FirstCapitalLetter())
-})
+  name: yup
+    .string()
+    .required("El nombre es obligatorio")
+    .test(FirstCapitalLetter()),
+});

@@ -1,15 +1,40 @@
-import Button from "@/components/ui/Button";
-import { useNavigate } from "react-router";
+import IndexEntities from "@/components/ui/IndexEntities";
+import type CineModel from "../models/Cine.model";
+import { useEntities } from "@/hooks/useEntities";
 
 const IndexCines = () => {
-    const navigate = useNavigate()
-    return (
-        <>
-            <h3>Cines</h3>
-            <Button onclick={()=> navigate('/cines/create')} >Crear Cine</Button>
-        
-        </>
-    );
+  const entitiesHook = useEntities<CineModel>(`/Cines`);
+
+  return (
+    <>
+      <IndexEntities<CineModel>
+        titulo="Cines"
+        nombreEntitie="Cine"
+        url="/cines"
+        urlCrear="/cines/create"
+        {...entitiesHook}
+      >
+        {(cines, botones) => (
+          <>
+            <thead>
+              <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              {cines?.map((cine) => (
+                <tr key={cine.id}>
+                  <td>{cine.name}</td>
+                  <td>{botones(`/cines/edit/${cine.id}`, cine.id)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </>
+        )}
+      </IndexEntities>
+    </>
+  );
 };
 
 export default IndexCines;

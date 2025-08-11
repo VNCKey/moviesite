@@ -1,7 +1,6 @@
-export default interface MovieActorModel{
-    id:number;
-    name:string;
-    character:string;
-    foto:string;
-    
+export default interface MovieActorModel {
+  id: number;
+  name: string;
+  personaje: string;
+  foto: string;
 }
